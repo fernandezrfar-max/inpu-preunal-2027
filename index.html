@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INPU | Instituto Nacional de Preparación Universitaria</title>
+       <link rel="icon" type="image/png" href="inpu.png"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary-red: #e63946;    /* Rojo INPU */
+            --dark-black: #1d1d1b;     /* Negro profesional */
+            --pure-white: #ffffff;
+            --unal-blue: #003366;      /* Azul UNAL */
+            --light-bg: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--pure-white);
+            color: var(--dark-black);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background: var(--dark-black);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary-red);
+        }
+
+        .logo-container { color: white; text-decoration: none; display: flex; align-items: center; }
+        .logo-text { font-weight: 800; font-size: 1.6rem; color: white; }
+        .logo-sub { font-size: 0.65rem; display: block; letter-spacing: 1px; color: var(--primary-red); line-height: 1; }
+
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary-red); }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('INPU 0.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 10%;
+        }
+
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero span { color: var(--primary-red); }
+        .hero p { font-size: 1.1rem; max-width: 800px; margin-bottom: 30px; font-weight: 300; }
+
+        .btn-main {
+            padding: 15px 35px;
+            background: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+            border: 2px solid var(--primary-red);
+            display: inline-block;
+        }
+        .btn-main:hover { background: transparent; color: var(--primary-red); }
+
+        /* Secciones */
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.3rem; color: var(--dark-black); margin-bottom: 10px; }
+        .section-title hr { width: 50px; height: 5px; background: var(--primary-red); border: none; margin: 0 auto; }
+
+        /* Grid de Recursos (PDFs) */
+        .recursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .recurso-card {
+            background: var(--dark-black);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-red);
+            transition: 0.3s;
+        }
+        .recurso-card:hover { transform: translateY(-10px); }
+        .recurso-card i { font-size: 3rem; color: var(--primary-red); margin-bottom: 20px; }
+
+        /* Grid de Beneficios UNAL */
+        .beneficios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .b-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .b-card:hover { border-color: var(--unal-blue); background: #f0f7ff; }
+        .b-card i { color: var(--unal-blue); font-size: 1.5rem; margin-bottom: 15px; }
+        .b-card h4 { margin-bottom: 10px; color: var(--dark-black); }
+
+        /* Tabla de Carreras */
+        .table-container { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: var(--unal-blue); color: white; padding: 15px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; color: white; font-size: 30px;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer { background: var(--dark-black); color: white; padding: 50px 10%; text-align: center; border-top: 5px solid var(--primary-red); }
+        
+        /* Tags Materias */
+        .tag { background: #eee; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin: 5px; display: inline-block; font-weight: 600; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo-container">
+            <div>
+                <span class="logo-text">INPU</span>
+                <span class="logo-sub">INSTITUTO NACIONAL DE PREPARACIÓN UNIVERSITARIA</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#materiales">Descargas</a></li>
+            <li><a href="#puntajes">Carreras</a></li>
+            <li><a href="#beneficios">Beneficios UNAL</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <h1 data-aos="fade-up">Pasar a la UNAL <br><span>no es suerte, es preparación.</span></h1>
+        <p data-aos="fade-up" data-aos-delay="200">Somos expertos en el examen de la Universidad Nacional. Desde 2023, preparamos a estudiantes de 11 y egresados con profesores que ya son parte de la UNAL.</p>
+        <a href="#materiales" class="btn-main" data-aos="zoom-in" data-aos-delay="400">DESCARGAR MATERIAL REAL</a>
+    </section>
+
+    <section id="nosotros">
+        <div class="section-title">
+            <h2>¿Por qué elegir INPU Bogotá?</h2>
+            <hr>
+        </div>
+        <div class="beneficios-grid">
+            <div class="b-card" data-aos="fade-up">
+                <i class="fas fa-user-graduate"></i>
+                <h4>Profesores UNAL</h4>
+                <p>Nuestros docentes son estudiantes de la Nacho que ya conocen el examen real y te enseñan desde la experiencia.</p>
+            </div>
+            <div class="b-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-brain"></i>
+                <h4>Acompañamiento</h4>
+                <p>Clases de ayuda a preguntas, psicología para los nervios y acompañamiento personalizado.</p>
+            </div>
+            <div class="b-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-clock"></i>
+                <h4>Horarios Tarde/Noche</h4>
+                <p>3:00pm a 5:00pm y 6:00pm a 8:00pm. 4 meses de preparación intensiva virtual.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center;">
+            <h3>Materias que dictamos:</h3>
+            <div style="margin-top: 20px;">
+                <span class="tag">Lectura Crítica</span> <span class="tag">Matemáticas</span> 
+                <span class="tag">Física</span> <span class="tag">Biología</span> 
+                <span class="tag">Química</span> <span class="tag">Ciencias Sociales</span> 
+                <span class="tag">Análisis de Imagen</span> <span class="tag">Inglés</span>
+            </div>
+            <p style="margin-top: 15px; font-weight: 700; color: var(--primary-red);">*Todas las materias son obligatorias para asegurar el éxito.</p>
+        </div>
+    </section>
+
+    <section id="materiales" style="background: var(--light-bg);">
+        <div class="section-title">
+            <h2>Material de Alto Valor</h2>
+            <hr>
+        </div>
+        <div class="recursos-grid">
+            <div class="recurso-card" data-aos="flip-left">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Exámenes Reales</h3>
+                <p>Banco de preguntas oficiales desde el 2023 hasta la fecha.</p>
+                <a href="Examen de admisión completo 2025-2.pdf" target="_blank" class="btn-main" style="margin-top: 20px; font-size: 0.8rem;">ABRIR EXÁMENES</a>
+            </div>
+
+            <div class="recurso-card" data-aos="flip-left" data-aos-delay="200">
+                <i class="fas fa-trophy"></i>
+                <h3>Nuestros Resultados</h3>
+                <p>PDF con los puntajes de nuestros estudiantes (Desde 650 hasta 952 puntos).</p>
+                <a href="PUNTAJES INPU 2026 ENERO.pdf" target="_blank" class="btn-main" style="margin-top: 20px; font-size: 0.8rem;">VER PUNTAJES INPU</a>
+            </div>
+
+            <div class="recurso-card" data-aos="flip-left" data-aos-delay="400">
+                <i class="fas fa-star"></i>
+                <h3>Caso de Éxito</h3>
+                <p>Valentina: Nuestra estudiante con el puntaje más alto: <strong>952</strong>.</p>
+                <a href="#puntajes" class="btn-main" style="margin-top: 20px; font-size: 0.8rem;">VER CARRERAS</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <div class="section-title">
+            <h2>7 Beneficios de estudiar en la UNAL</h2>
+            <p>Lo que ganarás al pasar el examen con INPU</p>
+            <hr>
+        </div>
+        <div class="beneficios-grid">
+            <div class="b-card"><i class="fas fa-bus"></i> <h4>Transporte</h4> <p>Convocatorias de apoyo al transporte todos los semestres.</p></div>
+            <div class="b-card"><i class="fas fa-utensils"></i> <h4>Alimentación</h4> <p>Servicio de desayuno, almuerzo y cena en el campus.</p></div>
+            <div class="b-card"><i class="fas fa-hand-holding-usd"></i> <h4>Auxilio Económico</h4> <p>Pago de 1 SMMLV por semestre como promotor de convivencia.</p></div>
+            <div class="b-card"><i class="fas fa-home"></i> <h4>Vivienda</h4> <p>Programas para gente de fuera (Medellín, Manizales, etc).</p></div>
+            <div class="b-card"><i class="fas fa-briefcase"></i> <h4>Trabajo</h4> <p>Oportunidades laborales dentro de la U si tienes buenas habilidades.</p></div>
+            <div class="b-card"><i class="fas fa-graduation-cap"></i> <h4>Matrícula Cero</h4> <p>Posibilidad de gratuidad total mediante convenio con Atenea.</p></div>
+            <div class="b-card"><i class="fas fa-heart"></i> <h4>Bienestar</h4> <p>Acceso a salud, deportes y cultura de primer nivel.</p></div>
+        </div>
+    </section>
+
+    <section id="puntajes" style="background: var(--light-bg);">
+        <div class="section-title">
+            <h2>Buscador de Carreras y Cortes</h2>
+            <p>Lista completa - Sede Bogotá</p>
+            <hr>
+        </div>
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Busca tu carrera (Ej: Medicina, Química...)" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 20px;">
+        <div class="table-container">
+            <table id="carrerasTable">
+                <thead>
+                    <tr><th>Carrera</th><th>Puntaje Mínimo</th></tr>
+                </thead>
+                <tbody>
+                 <tr><td>Administración de Empresas</td><td>591.7623</td></tr>
+<tr><td>Antropología</td><td>674.3137</td></tr>
+<tr><td>Arquitectura</td><td>606.2261</td></tr>
+<tr><td>Biología</td><td>678.3379</td></tr>
+<tr><td>Ciencia Política</td><td>632.9013</td></tr>
+<tr><td>Ciencias de la Computación</td><td>720.3741</td></tr>
+<tr><td>Contaduría Pública</td><td>593.5714</td></tr>
+<tr><td>Derecho</td><td>608.2942</td></tr>
+<tr><td>Diseño Gráfico</td><td>694.3683</td></tr>
+<tr><td>Diseño Industrial</td><td>619.9585</td></tr>
+<tr><td>Economía</td><td>598.872</td></tr>
+<tr><td>Enfermería</td><td>640.9123</td></tr>
+<tr><td>Español y Filología Clásica</td><td>—</td></tr>
+<tr><td>Estadística</td><td>622.2461</td></tr>
+<tr><td>Farmacia</td><td>708.8631</td></tr>
+<tr><td>Filología e Idiomas: Alemán</td><td>602.6496</td></tr>
+<tr><td>Filología e Idiomas: Francés</td><td>614.3511</td></tr>
+<tr><td>Filología e Idiomas: Inglés</td><td>650.8753</td></tr>
+<tr><td>Filosofía</td><td>606.912</td></tr>
+<tr><td>Física</td><td>666.5742</td></tr>
+<tr><td>Fisioterapia</td><td>—</td></tr>
+<tr><td>Geografía</td><td>570.7505</td></tr>
+<tr><td>Geología</td><td>592.8751</td></tr>
+<tr><td>Ingeniería Agrícola</td><td>571.1981</td></tr>
+<tr><td>Ingeniería Agronómica</td><td>575.1228</td></tr>
+<tr><td>Ingeniería Civil</td><td>579.1407</td></tr>
+<tr><td>Ingeniería de Sistemas y Computación</td><td>667.3036</td></tr>
+<tr><td>Ingeniería Eléctrica</td><td>616.0565</td></tr>
+<tr><td>Ingeniería Electrónica</td><td>637.7419</td></tr>
+<tr><td>Ingeniería Industrial</td><td>620.06</td></tr>
+<tr><td>Ingeniería Mecánica</td><td>639.1157</td></tr>
+<tr><td>Ingeniería Mecatrónica</td><td>667.229</td></tr>
+<tr><td>Ingeniería Química</td><td>643.2041</td></tr>
+<tr><td>Lingüística</td><td>601.7606</td></tr>
+<tr><td>Matemáticas</td><td>640.328</td></tr>
+<tr><td>Medicina</td><td>713.0862</td></tr>
+<tr><td>Medicina Veterinaria</td><td>661.7439</td></tr>
+<tr><td>Nutrición y Dietética</td><td>698.8898</td></tr>
+<tr><td>Odontología</td><td>641.4013</td></tr>
+<tr><td>Psicología</td><td>—</td></tr>
+<tr><td>Química</td><td>671.7152</td></tr>
+<tr><td>Sociología</td><td>596.4475</td></tr>
+<tr><td>Trabajo Social</td><td>709.3066</td></tr>
+<tr><td>Zootecnia</td><td>666.1701</td></tr>
+
+<tr><td>Artes Plásticas</td><td>572.3171</td></tr>
+<tr><td>Cine y Televisión</td><td>578.707</td></tr>
+<tr><td>Música - Composición</td><td>—</td></tr>
+<tr><td>Música - Jazz</td><td>—</td></tr>
+<tr><td>Música Inst. - Canto</td><td>—</td></tr>
+<tr><td>Música Inst. - Contrabajo</td><td>—</td></tr>
+<tr><td>Música Inst. - Eufonio</td><td>—</td></tr>
+<tr><td>Música Inst. - Fagot</td><td>—</td></tr>
+<tr><td>Música Inst. - Flauta</td><td>—</td></tr>
+<tr><td>Música Inst. - Guitarra</td><td>—</td></tr>
+<tr><td>Música Inst. - Oboe</td><td>—</td></tr>
+<tr><td>Música Inst. - Piano</td><td>—</td></tr>
+<tr><td>Música Inst. - Trombón</td><td>—</td></tr>
+<tr><td>Música Inst. - Trompeta</td><td>—</td></tr>
+<tr><td>Música Inst. - Tuba</td><td>—</td></tr>
+<tr><td>Música Inst. - Viola</td><td>—</td></tr>
+<tr><td>Música Inst. - Violín</td><td>564.938</td></tr>
+<tr><td>Música Inst. - Violonchelo</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <a href="https://wa.me/573018760127" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div style="font-size: 2rem; font-weight: 800; color: white;">INPU</div>
+        <p>Instituto Nacional de Preparación Universitaria</p>
+        <p>Bogotá - Colombia | Desde 2023</p>
+        <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">
+            Expertos en el examen de admisión de la Universidad Nacional de Colombia
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function filterTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("carrerasTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+                }      
+            }
+        }
+    </script>
+</body>
+</html>

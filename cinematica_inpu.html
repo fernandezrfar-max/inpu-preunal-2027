@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>FÍSICA - INPU | Cinemática</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background: #020617;
+  color: #ffffff;
+}
+
+#slides {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 70px 100px;
+  display: none;
+  background-size: cover;
+  background-position: center;
+  animation: enter 1s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.overlay {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to right,
+    rgba(2,6,23,0.85),
+    rgba(2,6,23,0.55)
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1150px;
+}
+
+h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 1.9rem;
+  margin-top: 28px;
+  color: #38bdf8;
+}
+
+p, li {
+  font-size: 1.55rem;
+  line-height: 1.75;
+}
+
+ul {
+  margin-left: 35px;
+}
+
+@keyframes enter {
+  from { opacity:0; transform: translateY(30px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+#nav {
+  position:absolute;
+  bottom:30px;
+  width:100%;
+  text-align:center;
+  z-index:3;
+}
+
+button {
+  background:#38bdf8;
+  color:#020617;
+  border:none;
+  padding:12px 32px;
+  font-size:1.05rem;
+  font-weight:600;
+  border-radius:10px;
+  margin:0 12px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover {
+  background:#7dd3fc;
+}
+
+#counter {
+  position:absolute;
+  top:25px;
+  right:45px;
+  font-size:1rem;
+  opacity:0.85;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slides">
+
+<!-- PORTADA -->
+<div class="slide active" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h1>FÍSICA – INPU</h1>
+<h2>CLASE SUPERFICIAL</h2>
+<p>Cinemática · Estudio del movimiento en 1D y 2D</p>
+</div>
+</div>
+
+<!-- QUÉ ES CINEMÁTICA -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>¿Qué estudia la Cinemática?</h2>
+<p>
+La cinemática es la rama de la física que estudia cómo se mueven los cuerpos,
+sin analizar las causas del movimiento.
+</p>
+
+<h3>En cinemática nos interesa</h3>
+<ul>
+<li>Dónde está un objeto.</li>
+<li>Cómo cambia su posición con el tiempo.</li>
+<li>Qué tan rápido se mueve.</li>
+<li>Si su velocidad cambia o no.</li>
+</ul>
+
+<h3>Idea clave</h3>
+<p>La cinemática describe el movimiento, no explica por qué ocurre.</p>
+</div>
+</div>
+
+<!-- SISTEMA DE REFERENCIA -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Sistema de referencia</h2>
+<p>Para describir cualquier movimiento necesitamos:</p>
+<ul>
+<li>Un sistema de referencia.</li>
+<li>Un origen.</li>
+<li>Uno o más ejes de coordenadas.</li>
+</ul>
+
+<h3>Importante</h3>
+<p>El movimiento no depende del objeto, sino de cómo lo describimos.</p>
+</div>
+</div>
+
+<!-- DIMENSIONES -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Dimensiones del movimiento</h2>
+
+<h3>Movimiento en 1D</h3>
+<p>Ocurre sobre una línea recta.<br>Ejemplo: un carro en carretera recta.</p>
+
+<h3>Movimiento en 2D</h3>
+<p>Ocurre sobre un plano.<br>Ejemplo: el movimiento de un proyectil.</p>
+</div>
+</div>
+
+<!-- 1D -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Movimiento en 1 Dimensión (1D)</h2>
+<p>Todo ocurre sobre un solo eje, normalmente el eje x.</p>
+</div>
+</div>
+
+<!-- POSICIÓN -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Posición, desplazamiento y distancia</h2>
+
+<h3>Posición</h3>
+<p>Es el lugar donde se encuentra el objeto respecto al origen.</p>
+
+<h3>Desplazamiento</h3>
+<p>Es el cambio de posición. Puede ser positivo o negativo.</p>
+
+<h3>Distancia</h3>
+<p>Es la longitud total del camino recorrido y siempre es positiva.</p>
+</div>
+</div>
+
+<!-- EJEMPLO -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Ejemplo</h2>
+<p>
+Un objeto va de x = 2 m a x = −4 m:
+</p>
+<ul>
+<li>Desplazamiento = −6 m</li>
+<li>Distancia recorrida = 6 m</li>
+</ul>
+</div>
+</div>
+
+<!-- VELOCIDAD -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Velocidad y rapidez</h2>
+
+<h3>Velocidad</h3>
+<p>Indica qué tan rápido cambia la posición. Puede ser positiva o negativa.</p>
+
+<h3>Rapidez</h3>
+<p>Es el valor absoluto de la velocidad y no tiene dirección.</p>
+</div>
+</div>
+
+<!-- ACELERACIÓN -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Aceleración</h2>
+<p>Indica si la velocidad cambia con el tiempo.</p>
+
+<ul>
+<li>Puede ser positiva.</li>
+<li>Negativa.</li>
+<li>Cero.</li>
+</ul>
+
+<h3>Importante</h3>
+<p>
+Un objeto puede tener velocidad distinta de cero y aceleración cero,
+o aceleración distinta de cero aunque vaya lento.
+</p>
+</div>
+</div>
+
+<!-- TIPOS -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Tipos de movimiento en 1D</h2>
+
+<h3>MRU</h3>
+<p>Velocidad constante · Aceleración = 0</p>
+
+<h3>MRUA</h3>
+<p>Aceleración constante · Uso de ecuaciones del movimiento</p>
+
+<p><b>Nota:</b> Estas ecuaciones solo sirven si la aceleración es constante.</p>
+</div>
+</div>
+
+<!-- 2D -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Movimiento en 2 Dimensiones (2D)</h2>
+<p>El movimiento ocurre en un plano, usando los ejes x y y.</p>
+
+<h3>Idea fundamental</h3>
+<p>
+El movimiento en 2D se analiza como dos movimientos independientes:
+uno en x y otro en y.
+</p>
+</div>
+</div>
+
+<!-- PROYECTILES -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Movimiento de proyectiles</h2>
+<p>
+Un objeto lanzado con una velocidad inicial formando un ángulo.
+</p>
+
+<h3>Movimiento en x</h3>
+<p>Velocidad constante · Aceleración = 0</p>
+
+<h3>Movimiento en y</h3>
+<p>Movimiento acelerado por la gravedad</p>
+</div>
+</div>
+
+<!-- TRAYECTORIA -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Trayectoria parabólica</h2>
+<p>
+La combinación del movimiento uniforme en x
+con el movimiento acelerado en y
+produce una parábola.
+</p>
+
+<h3>Idea clave</h3>
+<p>
+El objeto siempre cae verticalmente, incluso si se mueve horizontalmente.
+</p>
+</div>
+</div>
+
+<!-- EJEMPLO 2D -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Ejemplo práctico 2D</h2>
+<p>A partir del movimiento del proyectil se analiza:</p>
+<ul>
+<li>Tiempo de vuelo.</li>
+<li>Altura máxima.</li>
+<li>Alcance horizontal.</li>
+</ul>
+</div>
+</div>
+
+<!-- CIERRE -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Cierre conceptual</h2>
+<ul>
+<li>En 1D el movimiento ocurre sobre una línea.</li>
+<li>En 2D se separa en dos movimientos independientes.</li>
+<li>La clave es elegir bien el sistema de referencia.</li>
+</ul>
+
+<h3>Frase final</h3>
+<p>“La cinemática no se memoriza, se entiende.”</p>
+</div>
+</div>
+
+<div id="nav">
+<button onclick="prev()">◀ Anterior</button>
+<button onclick="next()">Siguiente ▶</button>
+</div>
+
+<div id="counter"></div>
+</div>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let i = 0;
+function show(){
+slides.forEach(s=>s.classList.remove('active'));
+slides[i].classList.add('active');
+document.getElementById('counter').innerText = `Diapositiva ${i+1} / ${slides.length}`;
+}
+function next(){ if(i<slides.length-1){i++;show();}}
+function prev(){ if(i>0){i--;show();}}
+show();
+</script>
+
+</body>
+</html>

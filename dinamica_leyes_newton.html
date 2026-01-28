@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>FÍSICA - INPU | Dinámica</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: #050b1e;
+  color: #fff;
+}
+
+#slides {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 70px 90px;
+  display: none;
+  background-size: cover;
+  background-position: center;
+  animation: slideFade 1s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.overlay {
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.55);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+}
+
+h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-top: 25px;
+  color: #00d4ff;
+}
+
+p, li {
+  font-size: 1.55rem;
+  line-height: 1.75;
+}
+
+ul {
+  margin-left: 30px;
+}
+
+@keyframes slideFade {
+  from { opacity:0; transform: translateY(25px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+#nav {
+  position:absolute;
+  bottom:30px;
+  width:100%;
+  text-align:center;
+  z-index:3;
+}
+
+button {
+  background:#00b4d8;
+  color:#000;
+  border:none;
+  padding:12px 30px;
+  font-size:1.1rem;
+  font-weight:600;
+  border-radius:8px;
+  margin:0 10px;
+  cursor:pointer;
+}
+
+button:hover {
+  background:#48cae4;
+}
+
+#counter {
+  position:absolute;
+  top:25px;
+  right:40px;
+  font-size:1rem;
+  opacity:0.85;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slides">
+
+<!-- PORTADA -->
+<div class="slide active" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h1>FÍSICA – INPU</h1>
+<h2>CLASE SUPERFICIAL</h2>
+<p>Dinámica · Las Leyes de Newton</p>
+</div>
+</div>
+
+<!-- DINÁMICA -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>¿Qué estudia la Dinámica?</h2>
+<p>
+La dinámica es la parte de la física que estudia las causas del movimiento, es decir,
+las fuerzas que actúan sobre un cuerpo y cómo estas afectan su movimiento.
+</p>
+
+<h3>Diferencia clave</h3>
+<ul>
+<li>Cinemática: describe el movimiento.</li>
+<li>Dinámica: explica por qué el movimiento cambia.</li>
+</ul>
+</div>
+</div>
+
+<!-- CONCEPTOS -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Conceptos fundamentales previos</h2>
+<p>
+Antes de enunciar las leyes de Newton, es necesario aclarar algunos conceptos fundamentales.
+</p>
+</div>
+</div>
+
+<!-- FUERZA -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Fuerza</h2>
+<p>Una fuerza es toda interacción capaz de:</p>
+<ul>
+<li>Cambiar la velocidad de un cuerpo.</li>
+<li>Cambiar su dirección.</li>
+<li>Deformarlo.</li>
+</ul>
+
+<h3>Es un vector</h3>
+<ul>
+<li>Magnitud</li>
+<li>Dirección</li>
+<li>Sentido</li>
+<li>Punto de aplicación</li>
+</ul>
+</div>
+</div>
+
+<!-- MASA -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Masa</h2>
+<p>
+La masa mide la resistencia de un cuerpo a cambiar su estado de movimiento.
+</p>
+<h3>A mayor masa:</h3>
+<p>Mayor dificultad para acelerar o frenar.</p>
+</div>
+</div>
+
+<!-- SISTEMA INERCIAL -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Sistema de referencia inercial</h2>
+<ul>
+<li>Sistemas en reposo.</li>
+<li>Sistemas con velocidad constante.</li>
+</ul>
+<p>
+Las leyes de Newton solo son válidas en sistemas de referencia inerciales.
+</p>
+</div>
+</div>
+
+<!-- PRIMERA LEY -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Primera Ley de Newton</h2>
+<h3>Ley de la Inercia</h3>
+<p>
+Todo cuerpo permanece en reposo o en movimiento rectilíneo uniforme,
+a menos que una fuerza neta actúe sobre él.
+</p>
+</div>
+</div>
+
+<!-- INTERPRETACIÓN 1 -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Interpretación física</h2>
+<ul>
+<li>Si la fuerza neta es cero, el objeto no acelera.</li>
+<li>Puede estar quieto o moverse con velocidad constante.</li>
+</ul>
+</div>
+</div>
+
+<!-- EJEMPLOS -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Ejemplos</h2>
+<ul>
+<li>Un libro sobre la mesa permanece quieto porque el peso y la normal se equilibran.</li>
+<li>Un carro sigue moviéndose si no hay fuerzas que lo frenen.</li>
+</ul>
+
+<h3>Idea clave</h3>
+<p>No se necesita fuerza para mantener el movimiento, solo para cambiarlo.</p>
+</div>
+</div>
+
+<!-- SEGUNDA LEY -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Segunda Ley de Newton</h2>
+<p>
+La aceleración de un cuerpo es directamente proporcional a la fuerza neta
+e inversamente proporcional a su masa.
+</p>
+
+<ul>
+<li>Más fuerza → más aceleración.</li>
+<li>Más masa → menos aceleración.</li>
+<li>La aceleración tiene la misma dirección que la fuerza neta.</li>
+</ul>
+</div>
+</div>
+
+<!-- PROCEDIMIENTO -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Procedimiento para resolver problemas</h2>
+<ul>
+<li>Identificar el cuerpo de interés.</li>
+<li>Dibujar el diagrama de cuerpo libre.</li>
+<li>Descomponer fuerzas si es necesario.</li>
+<li>Aplicar la segunda ley de Newton.</li>
+</ul>
+</div>
+</div>
+
+<!-- TERCERA LEY -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Tercera Ley de Newton</h2>
+<p>
+A toda acción corresponde una reacción de igual magnitud y dirección,
+pero de sentido contrario.
+</p>
+
+<h3>Aclaración importante</h3>
+<ul>
+<li>No se anulan.</li>
+<li>Actúan sobre cuerpos diferentes.</li>
+</ul>
+</div>
+</div>
+
+<!-- EJEMPLOS 3 -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Ejemplos claros</h2>
+<ul>
+<li>Al empujar una pared, la pared empuja a la persona.</li>
+<li>Al caminar, el pie empuja el suelo y el suelo empuja el cuerpo.</li>
+</ul>
+</div>
+</div>
+
+<!-- FUERZAS -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Fuerzas más comunes</h2>
+<ul>
+<li>Peso</li>
+<li>Fuerza normal</li>
+<li>Fricción</li>
+<li>Tensión</li>
+</ul>
+</div>
+</div>
+
+<!-- CIERRE -->
+<div class="slide" style="background-image:url('https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg');">
+<div class="overlay"></div>
+<div class="content">
+<h2>Cierre conceptual</h2>
+<p>La primera ley explica cuándo no cambia el movimiento.</p>
+<p>La segunda cuantifica ese cambio.</p>
+<p>La tercera explica interacciones entre cuerpos.</p>
+
+<h3>
+“Las fuerzas no explican si algo se mueve, explican por qué cambia su movimiento.”
+</h3>
+</div>
+</div>
+
+<div id="nav">
+<button onclick="prev()">◀ Anterior</button>
+<button onclick="next()">Siguiente ▶</button>
+</div>
+
+<div id="counter"></div>
+</div>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let i = 0;
+function show(){
+slides.forEach(s=>s.classList.remove('active'));
+slides[i].classList.add('active');
+document.getElementById('counter').innerText = `Diapositiva ${i+1} / ${slides.length}`;
+}
+function next(){ if(i<slides.length-1){i++;show();}}
+function prev(){ if(i>0){i--;show();}}
+show();
+</script>
+
+</body>
+</html>
